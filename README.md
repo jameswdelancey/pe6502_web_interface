@@ -1,5 +1,7 @@
-# Example Package
+# Introduction
 
-This is a simple example package. You can use
-[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
-to write your content.
+This is a minimum viable product at this point but will likely be cleaned up 
+into a pypi package, hence the structure.
+
+Requires pyserial and bottlepy.
+
