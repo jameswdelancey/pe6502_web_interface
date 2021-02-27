@@ -16,7 +16,7 @@ def get_from_serial():
     acc = []
     while data:
         acc += [data]
-        data = s.readline().decode()
+        data = s.readline().decode().replace("\r", "\r\n")
     return "".join(acc)
 
 
