@@ -45,9 +45,9 @@ def new_item():
 def new_from_serial():
     """Creates a new programs entry from the device
 
-    This is a minimum viable product for this method
-    and has no saftey for santizing the input which
-    should be added before allowing public network access.
+    This is a minimum viable product for this method and has no saftey for
+    santizing the input which should be added before allowing public network
+    access.
     """
     assert request.params.dict.keys() == {"cmd"}
     CMD_TO_START_READ = request.params.getone("cmd")
@@ -55,7 +55,7 @@ def new_from_serial():
     s.write((CMD_TO_START_READ + "\r").encode())
     # breakpoint()
     try:
-        content = "\r\n".join(get_from_serial().splitlines()[2:-2])
+        content = "\r\n".join(get_from_serial().splitlines()[1:])
     except Exception:
         content = "No text returned from device."
     try:
@@ -74,10 +74,9 @@ def new_from_serial():
 def new_item():
     """Creates a new item for a program in the database
 
-    Be aware that this has hard coded debugging in it and is
-    not intended to be used on a public-facing network. Additionally
-    some CSRF and login logic will be needed to upgrade this
-    to work on a public network.
+    Be aware that this has hard coded debugging in it and is not intended to be
+    used on a public-facing network. Additionally some CSRF and login logic
+    will be needed to upgrade this to work on a public network.
     """
     assert request.forms.dict.keys() == {"description", "content"}
     try:
@@ -106,10 +105,9 @@ def edit_item(id):
 def edit_item():
     """Edits an item for a program in the database
 
-    Be aware that this has hard coded debugging in it and is
-    not intended to be used on a public-facing network. Additionally
-    some CSRF and login logic will be needed to upgrade this
-    to work on a public network.
+    Be aware that this has hard coded debugging in it and is not intended to be
+    used on a public-facing network. Additionally some CSRF and login logic
+    will be needed to upgrade this to work on a public network.
     """
     assert request.forms.dict.keys() == {"description", "content", "id"}
     try:
@@ -158,11 +156,9 @@ def del_item(id):
 def run_item(id):
     """Runs a program from a line in the database
 
-    This method works by typing the text verbatim
-    therefore the context of the computer will need
-    to be set beforehand, such as running 'new' in
-    BASIC or entering the correct interpreter or
-    WozMon.
+    This method works by typing the text verbatim therefore the context of the
+    computer will need to be set beforehand, such as running 'new' in BASIC or
+    entering the correct interpreter or WozMon.
     """
     assert (
         db.cursor()
