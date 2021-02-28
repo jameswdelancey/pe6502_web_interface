@@ -1,12 +1,18 @@
 # Introduction
 
+This package Will send and receive machine code, Integer BASIC, and Applesoft 
+BASIC code to the 6502 computer over serial.
+
+To run, do the following:
+- Clone the repo `git clone https://github.com/jameswdelancey/pe6502_web_interface.git`
+- Install the dependencies `sudo pip3 install bottlepy pyserial`
+- Enter the directory `cd pe6502_web_interface`
+- Execute with this command: `python3 pe6502_web_interface/main.py`
+
 This is a minimum viable product at this point but will likely be cleaned up 
 into a pypi package, hence the structure.
 
 Requires pyserial and bottlepy.
-
-Will send and receive machine code, Integer BASIC, and Applesoft BASIC code 
-to the 6502 computer over serial.
 
 ## Pic of the board
 ![.gif](https://github.com/jameswdelancey/pe6502_web_interface/raw/main/docs/_static/1-0.jpg)
