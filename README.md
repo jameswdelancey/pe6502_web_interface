@@ -49,7 +49,8 @@ To run, do the following:
 https://github.com/jameswdelancey/pe6502_web_interface.git`
 - Install the dependencies `sudo pip3 install bottlepy pyserial`
 - Enter the directory `cd pe6502_web_interface`
-- Execute with this command: `python3 pe6502_web_interface/main.py`
+- Execute with this command: `sudo python3 pe6502_web_interface/main.py` (sudo 
+is required for serial port access on my machine.)
 
 This is a minimum viable product at this point but will likely be cleaned up 
 into a pypi package, hence the structure.
