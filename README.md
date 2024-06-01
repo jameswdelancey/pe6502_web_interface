@@ -1,61 +1,38 @@
-# Introduction
+# PE6502 Web Interface
 
-This package will send and receive machine code, Integer BASIC, and Applesoft 
-BASIC code to the 6502 computer over serial via a web interface. The package is 
-based on [Bottle](https://bottlepy.org), 
-[pySerial](https://pyserial.readthedocs.io), and storage in 
-[sqlite3](https://docs.python.org/3/library/sqlite3.html).
+This repository contains a package enabling the sending and receiving of machine code, Integer BASIC, and Applesoft BASIC code to the 6502 computer over serial via a web interface. Leveraging [Bottle](https://bottlepy.org), [pySerial](https://pyserial.readthedocs.io), and storage in [SQLite3](https://docs.python.org/3/library/sqlite3.html), it provides a user-friendly solution for loading and saving programs conveniently.
 
-# Why?
-- The load and save mechanisms for the pe6502 out of the box are implemented 
-via RS232 serial, but as a user of the computer you need a computer/laptop or 
-something nearby to conduct saving and loading. 
-- Using a [RaspberryPi](https://www.raspberrypi.org/) with "stock" Raspbian 
-configuration and the code in this repo, we we are able to controll loading and 
-saving from a cell phone, for example, via a web interface.
-- Additionally we have access to our library of software, which we can load at 
-the push of a link on our cell phone. (It would of course work on a computer or 
-via automation software, etc.)
+## Why?
 
-# Scenarios and Use Cases
+- **Enhanced Accessibility**: The default load and save mechanisms for the pe6502 rely on RS232 serial, necessitating the presence of a computer or laptop. This package expands accessibility by allowing users to manage loading and saving operations from devices like smartphones or tablets via a web interface.
+  
+- **Effortless Program Management**: With a Raspberry Pi running standard Raspbian and the code provided in this repository, users can effortlessly load and save software, granting access to their library of programs with the tap of a link on their mobile device or through automation software.
 
-## Scenario 1
-- I have a lot of BASIC programs written for Commodore 64, or other 
-computers, and I want to check and/or tweak them in any way required to run on 
-my pe6502.
+## Scenarios and Use Cases
 
-## Solution 1
-- With a desktop, laptop computer or cell phone
-- Copy and paste the BASIC program into the "Add New" webform as shown in 
-  images below, then
-- Click "Run" to have the software input into the pe6502. 
-- Test the software. 
-- Tweak anything requied to get the software working. 
-- When you're ready to backup / save the work, click "Add New", 
-- Enter the command required to get the software to output the code (LOAD in 
-  basic or 300.2000 [for example] in Woz Mon to get the hex output of the block 
-  of RAM holding the program.
-- Press the "Submit" button to save your code
-- The software will run the command you entered (usually LOAD) and capture the 
-output
-- Your code is now saved in the table and you can edit the description and any 
-leading or trailing spaces or characters you wish to remove by clicking edit
+### Scenario 1: Porting Programs
 
-# Installation
+- **Challenge**: You possess BASIC programs originally written for systems like the Commodore 64 and aim to adapt them to run on the pe6502.
 
-To run, do the following:
+- **Solution**: Utilize the web interface provided by this package to seamlessly adapt and transfer programs:
+  1. Access the web interface from a desktop, laptop, or mobile device.
+  2. Copy and paste the BASIC program into the "Add New" webform.
+  3. Click "Run" to input the software into the pe6502.
+  4. Test and adjust the program as necessary.
+  5. When ready to save, click "Add New" and enter the appropriate command (e.g., LOAD in BASIC or memory addresses for Woz Mon).
+  6. Submit the command to save your code.
+  7. Edit descriptions or remove unwanted characters as needed.
 
-- Clone the repo `git clone 
-https://github.com/jameswdelancey/pe6502_web_interface.git`
-- Install the dependencies `sudo pip3 install bottlepy pyserial`
-- Enter the directory `cd pe6502_web_interface`
-- Execute with this command: `sudo python3 pe6502_web_interface/main.py` (sudo 
-is required for serial port access on my machine.)
+## Installation
 
-This is a minimum viable product at this point but will likely be cleaned up 
-into a pypi package, hence the structure.
+To set up and run the interface, follow these steps:
 
-Requires pyserial and bottlepy.
+1. Clone the repository: `git clone https://github.com/jameswdelancey/pe6502_web_interface.git`
+2. Install dependencies: `sudo pip3 install bottlepy pyserial`
+3. Navigate to the directory: `cd pe6502_web_interface`
+4. Execute the main script: `sudo python3 pe6502_web_interface/main.py` (sudo permission may be necessary for serial port access).
+
+Please note that while this repository currently serves as a minimum viable product, it may evolve into a PyPI package in the future, hence its current structure.
 
 ## Pic of the board
 ![.gif](https://github.com/jameswdelancey/pe6502_web_interface/raw/main/docs/_static/1-0.jpg)
@@ -84,3 +61,6 @@ Requires pyserial and bottlepy.
 ## Edit to add description or title
 ![.gif](https://github.com/jameswdelancey/pe6502_web_interface/raw/main/docs/_static/2-1.jpg)
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
